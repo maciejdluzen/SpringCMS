@@ -34,10 +34,10 @@ public class Article {
 
     // RELATIONS
 
-    @OneToMany
+    @ManyToMany
     private List<Category> categories = new ArrayList<>();
 
-    @OneToOne
+    @ManyToOne
     private Author author;
 
 

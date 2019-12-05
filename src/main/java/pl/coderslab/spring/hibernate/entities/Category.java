@@ -2,6 +2,8 @@ package pl.coderslab.spring.hibernate.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "categories")
@@ -18,6 +20,11 @@ public class Category {
     private String name;
 
     private String description;
+
+    // RELATIONS
+
+    @ManyToMany(mappedBy = "categories")
+    private List<Article> articles = new ArrayList<>();
 
     // CONSTRUCTOR
 

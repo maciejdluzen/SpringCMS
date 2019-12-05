@@ -1,6 +1,8 @@
 package pl.coderslab.spring.hibernate.entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "authors")
@@ -17,6 +19,12 @@ public class Author {
 
     @Column(name = "last_name")
     private String lastName;
+
+
+    // RELATIONS
+
+    @OneToMany(mappedBy = "author")
+    private List<Article> articles = new ArrayList<>();
 
     // CONSTRUCTOR
 
