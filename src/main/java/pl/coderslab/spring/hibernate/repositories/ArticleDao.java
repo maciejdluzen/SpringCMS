@@ -1,5 +1,6 @@
 package pl.coderslab.spring.hibernate.repositories;
 
+import org.hibernate.Hibernate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.spring.hibernate.entities.Article;
@@ -24,7 +25,9 @@ public class ArticleDao {
     }
 
     public Article findById(Long id) {
-        return em.find(Article.class, id);
+        Article article = em.find(Article.class, id);
+        Hibernate.initialize(article.getCategories());
+        return article;
     }
 
     public void remove(Article entity) {
