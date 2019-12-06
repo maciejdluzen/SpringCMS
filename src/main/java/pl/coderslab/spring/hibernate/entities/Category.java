@@ -21,7 +21,8 @@ public class Category {
 
     private String description;
 
-    // RELATIONS
+
+// RELATIONS
 
     @ManyToMany(mappedBy = "categories")
     private List<Article> articles = new ArrayList<>();
@@ -55,5 +56,14 @@ public class Category {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
